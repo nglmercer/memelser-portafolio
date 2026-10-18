@@ -1,0 +1,21 @@
+{
+  "name": "memelser-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "void deploy --platform cloudflare",
+    "typecheck": "tsc --noEmit",
+    "test": "node verify-i18n.mjs && node verify-tabs.mjs && node verify-fluid.mjs && node verify-github-data.mjs"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4",
+    "void": "^1.1.11"
+  },
+  "engines": {
+    "node": ">=24.21.0"
+  }
+}

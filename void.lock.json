@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "source": {
+    "name": "memelser-portfolio"
+  },
+  "resolved": {
+    "name": "memelser-portfolio",
+    "compatibility_date": "2026-02-24"
+  },
+  "text": "{\n  \"name\": \"memelser-portfolio\",\n  \"compatibility_date\": \"2026-02-24\"\n}\n"
+}

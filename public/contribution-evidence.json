@@ -1,0 +1,42 @@
+{
+  "verified_on": "2026-09-30",
+  "criteria": "Public upstream PR, author nglmercer, merged true, non-null merged_at and merge_commit_sha",
+  "contributions": [
+    {
+      "repo": "napi-rs/napi-rs",
+      "pr": 3463,
+      "author": "nglmercer",
+      "merged": true,
+      "merged_at": "2026-08-30T15:46:06Z",
+      "url": "https://github.com/napi-rs/napi-rs/pull/3463",
+      "title": "feat(cli): add explicit build module format",
+      "stars": 7956,
+      "public": true,
+      "merge_commit_sha": "2d40a52c511da30a7690924fc9cca53b5ecb96e7"
+    },
+    {
+      "repo": "PerryTS/perry",
+      "pr": 5409,
+      "author": "nglmercer",
+      "merged": true,
+      "merged_at": "2026-06-19T09:46:39Z",
+      "url": "https://github.com/PerryTS/perry/pull/5409",
+      "title": "feat(plugin): enable Windows plugin support",
+      "stars": 4916,
+      "public": true,
+      "merge_commit_sha": "aa7ff4fdc1654373d1a14a1722e3bee9794ddac5"
+    },
+    {
+      "repo": "sonorahq/sonora",
+      "pr": 555,
+      "author": "nglmercer",
+      "merged": true,
+      "merged_at": "2026-09-11T19:37:14Z",
+      "url": "https://github.com/sonorahq/sonora/pull/555",
+      "title": "feat(ui): follow system reduced-motion preference",
+      "stars": 1645,
+      "public": true,
+      "merge_commit_sha": "1d3733559b55cbd827d16a9ad6aecc9f7477ba66"
+    }
+  ]
+}
