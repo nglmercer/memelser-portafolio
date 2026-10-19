@@ -10,5 +10,5 @@
     "noEmit": true,
     "types": ["vite/client"]
   },
-  "include": ["vite.config.ts", "void.config.ts", "routes/**/*.ts", "src/**/*.ts", "src/**/*.vue", "verify-*.mts"]
+  "include": ["vite.config.ts", "void.config.ts", "env.ts", "routes/**/*.ts", "crons/**/*.ts", "scripts/**/*.ts", "src/**/*.ts", "src/**/*.vue", "verify-*.mts"]
 }

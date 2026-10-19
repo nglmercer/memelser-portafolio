@@ -24,9 +24,9 @@ npm run deploy
 
 Selecciona tu cuenta cuando Void lo solicite. Void compila y publica el Worker
 `memelser-portfolio` con sus archivos estáticos, e imprime la URL final.
-Puedes cambiar el nombre en `void.config.ts`. No requiere base de datos ni
-secretos de GitHub. La sesión actual todavía no tiene autenticación de Cloudflare;
-el proyecto está preparado y verificado localmente, pero no publicado.
+Puedes cambiar el nombre en `void.config.ts`. La sesión actual todavía no
+tiene autenticación de Cloudflare; el proyecto está preparado y verificado
+localmente, pero no publicado.
 
 Para CI, configura `CLOUDFLARE_API_TOKEN` y `CLOUDFLARE_ACCOUNT_ID` como secretos
 del entorno y ejecuta `npm ci` seguido de `npm run deploy`.
@@ -42,9 +42,33 @@ Conserva `void.lock.json` en control de versiones si Void lo genera.
 - `void.config.ts`: destino Cloudflare y nombre del Worker.
 - `dist/client/` y `dist/ssr/`: archivos generados; no editar.
 
-Los datos de GitHub son una instantánea del 30 de septiembre de 2026 y no se
-actualizan automáticamente. Para reemplazarlos, actualiza
-`public/github-data.json` y vuelve a desplegar.
+## Datos de GitHub
+
+`/api/github` sirve la instantánea diaria desde KV y, si KV está vacío, el
+respaldo incluido en `public/github-data.json`. Hay dos formas de actualizarlos.
+
+**Sincronización manual** (sin secretos en producción):
+
+```sh
+GITHUB_TOKEN=ghp_... npm run github:sync
+```
+
+Reescribe `public/github-data.json` con los repositorios, estrellas y últimos
+20 commits actuales. Los enlaces `demo` curados y el historial de
+contribuciones se conservan. Sin token también funciona (60 peticiones/hora);
+con token el límite sube a 5.000/hora. Después vuelve a desplegar.
+
+**Sincronización automática** (requiere secretos de GitHub):
+
+```sh
+void secret put GITHUB_TOKEN
+npm run deploy
+```
+
+El cron `crons/daily-github.ts` (06:00 UTC) refresca los mismos datos y los
+guarda en KV por siete días. El historial diario de contribuciones no lo
+expone la API REST, así que se traslada de la instantánea anterior en ambos
+métodos.
 
 ## Verificación
 

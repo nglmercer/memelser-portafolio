@@ -8,7 +8,8 @@
     "preview": "vite preview",
     "deploy": "void deploy --platform cloudflare",
     "typecheck": "vue-tsc --noEmit",
-    "test": "npx tsx verify-i18n.mts && npx tsx verify-tabs.mts && npx tsx verify-fluid.mts && node verify-github-data.mjs"
+    "github:sync": "npx tsx scripts/sync-github-data.ts",
+    "test": "npx tsx verify-i18n.mts && npx tsx verify-tabs.mts && npx tsx verify-fluid.mts && npx tsx verify-github-sync.mts && node verify-github-data.mjs"
   },
   "devDependencies": {
     "@types/three": "^0.186.0",
