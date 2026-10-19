@@ -1,4 +1,4 @@
-export const visualTranslations = {
+export const visualTranslations: Record<string, Record<string, string>> = {
   "es": {
     "projectExplorer": "Explorador de proyectos",
     "githubActivity": "Actividad en GitHub",

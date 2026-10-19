@@ -1,4 +1,4 @@
-export const fluidTranslations = {
+export const fluidTranslations: Record<string, Record<string, string>> = {
   "es": {
     "contributionIntro": "Cambios de mi autoría integrados en los proyectos originales. Verificados con los registros de GitHub.",
     "viewContribution": "Ver PR integrado",

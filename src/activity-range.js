@@ -1,2 +1,0 @@
-export function selectActivity(history,start,end){const valid=s=>/^\d{4}-\d{2}-\d{2}$/.test(s)&&new Date(s+'T12:00:00Z').toISOString().slice(0,10)===s;if(!valid(start)||!valid(end)||start>end||start<history[0].date||end>history.at(-1).date)throw Error('invalidDateRange');return history.filter(d=>d.date>=start&&d.date<=end);}
-export function activityTotals(days){return {contributions:days.reduce((s,d)=>s+d.count,0),activeDays:days.filter(d=>d.count>0).length};}

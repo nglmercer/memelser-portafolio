@@ -7,15 +7,25 @@
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "void deploy --platform cloudflare",
-    "typecheck": "tsc --noEmit",
-    "test": "node verify-i18n.mjs && node verify-tabs.mjs && node verify-fluid.mjs && node verify-github-data.mjs"
+    "typecheck": "vue-tsc --noEmit",
+    "test": "npx tsx verify-i18n.mts && npx tsx verify-tabs.mts && npx tsx verify-fluid.mts && node verify-github-data.mjs"
   },
   "devDependencies": {
-    "typescript": "^7.0.2",
+    "@types/three": "^0.186.0",
+    "@vitejs/plugin-vue": "^6.0.10",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
     "vite": "^8.3.4",
-    "void": "^1.1.11"
+    "void": "^1.1.11",
+    "vue-tsc": "^3.3.13"
   },
   "engines": {
     "node": ">=24.21.0"
+  },
+  "dependencies": {
+    "three": "^0.186.1",
+    "vue": "^3.5.44",
+    "vue-i18n": "^11.4.16",
+    "vue-router": "^5.4.0"
   }
 }

@@ -1,4 +1,4 @@
-export const expandedTranslations = {
+export const expandedTranslations: Record<string, Record<string, string>> = {
   "es": {
     "contributions": "Contribuciones open source",
     "contributionIntro": "Propuestas de cambios en proyectos de la comunidad. Cada enlace lleva al PR original.",

@@ -1,9 +1,9 @@
-import {filterTranslations} from './filter-translations.js';
-import {visualTranslations} from './visual-translations.js';
-import {fluidTranslations} from './fluid-translations.js';
-import {expandedTranslations} from './expanded-translations.js';
-import {blogTranslations} from './blog-translations.js';
-import {blogUiTranslations} from './blog-ui-translations.js';
+import {filterTranslations} from './filter-translations';
+import {visualTranslations} from './visual-translations';
+import {fluidTranslations} from './fluid-translations';
+import {expandedTranslations} from './expanded-translations';
+import {blogTranslations} from './blog-translations';
+import {blogUiTranslations} from './blog-ui-translations';
 // Keep each locale complete. Repository names and technology names are proper nouns.
 const sources = {
 es: `
@@ -668,7 +668,7 @@ metaDescription=memelser / nglmercer का पोर्टफ़ोलियो
 `
 };
 
-const preferences = {
+const preferences: Record<string, string[]> = {
   es: ['Tema', 'Lima', 'Violeta', 'Cian', 'Ámbar', 'Claro', 'Tema cambiado a {theme}.'],
   en: ['Theme', 'Lime', 'Violet', 'Cyan', 'Amber', 'Light', 'Theme changed to {theme}.'],
   pt: ['Tema', 'Lima', 'Violeta', 'Ciano', 'Âmbar', 'Claro', 'Tema alterado para {theme}.'],
@@ -681,7 +681,7 @@ const preferences = {
   hi: ['थीम', 'लाइम', 'वायलेट', 'सियान', 'ऐंबर', 'हल्का', 'थीम {theme} में बदल दी गई है।']
 };
 const preferenceKeys = ['theme', 'themeLime', 'themeViolet', 'themeCyan', 'themeEmber', 'themeLight', 'themeChanged'];
-const tabCopy = {
+const tabCopy: Record<string, string[]> = {
   es: ['Portafolio', 'Secciones', 'Notas breves sobre modelos de lenguaje, eventos en vivo y aplicaciones de escritorio.'],
   en: ['Portfolio', 'Sections', 'Short notes on language models, live events, and desktop applications.'],
   pt: ['Portfólio', 'Seções', 'Notas breves sobre modelos de linguagem, eventos ao vivo e aplicações de desktop.'],
@@ -694,7 +694,7 @@ const tabCopy = {
   hi: ['पोर्टफ़ोलियो', 'सेक्शन', 'भाषा मॉडल, लाइव इवेंट और डेस्कटॉप ऐप पर संक्षिप्त लेख।']
 };
 
-export const translations = Object.fromEntries(Object.entries(sources).map(([locale, source]) => {
+export const translations: Record<string, Record<string, string>> = Object.fromEntries(Object.entries(sources).map(([locale, source]) => {
   const entries = source.split('\n').filter(line => line.includes('=')).map(line => {
     const separator = line.indexOf('=');
     return [line.slice(0, separator), line.slice(separator + 1)];

@@ -7,7 +7,8 @@
     "strict": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "noEmit": true
+    "noEmit": true,
+    "types": ["vite/client"]
   },
-  "include": ["vite.config.ts", "void.config.ts", "routes/**/*.ts"]
+  "include": ["vite.config.ts", "void.config.ts", "routes/**/*.ts", "src/**/*.ts", "src/**/*.vue", "verify-*.mts"]
 }
