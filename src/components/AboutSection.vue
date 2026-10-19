@@ -59,6 +59,12 @@
             <path d="M9 19c-5 1-5-3-7-3M15 22v-4c0-1-.3-2-1-2 4-.5 6-2 6-6 0-1-.4-2-1-3 .2-1 .2-2-.2-3-2 0-3 1-3 1a12 12 0 0 0-7 0S7 4 5 4c-.4 1-.4 2-.2 3-.6 1-1 2-1 3 0 4 2 5.5 6 6-.7.5-1 1-1 2v4" />
           </svg>
         </a>
+        <router-link class="button primary" to="/cv">
+          <span>{{ $t('cvViewCv') }}</span>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2m-12-3h12v6H6z" />
+          </svg>
+        </router-link>
       </div>
     </div>
   </section>

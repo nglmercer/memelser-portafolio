@@ -1,4 +1,5 @@
 import {filterTranslations} from './filter-translations';
+import {cvTranslations} from './cv-translations';
 import {visualTranslations} from './visual-translations';
 import {fluidTranslations} from './fluid-translations';
 import {expandedTranslations} from './expanded-translations';
@@ -700,5 +701,5 @@ export const translations: Record<string, Record<string, string>> = Object.fromE
     return [line.slice(0, separator), line.slice(separator + 1)];
   });
   if (new Set(entries.map(([key]) => key)).size !== entries.length) throw new Error(`Duplicate translation key: ${locale}`);
-  return [locale, {...Object.fromEntries(entries), ...Object.fromEntries(preferenceKeys.map((key, index) => [key, preferences[locale][index]])), ...blogTranslations[locale], ...Object.fromEntries(['portfolio','sections','metaBlogDescription'].map((key,index) => [key,tabCopy[locale][index]])), ...blogUiTranslations[locale], ...expandedTranslations[locale], ...fluidTranslations[locale], ...visualTranslations[locale], ...filterTranslations[locale]}];
+  return [locale, {...Object.fromEntries(entries), ...Object.fromEntries(preferenceKeys.map((key, index) => [key, preferences[locale][index]])), ...blogTranslations[locale], ...Object.fromEntries(['portfolio','sections','metaBlogDescription'].map((key,index) => [key,tabCopy[locale][index]])), ...blogUiTranslations[locale], ...expandedTranslations[locale], ...fluidTranslations[locale], ...visualTranslations[locale], ...filterTranslations[locale], ...cvTranslations[locale]}];
 }));

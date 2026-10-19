@@ -1,0 +1,146 @@
+/* Printable CV: paper sheet on screen, clean A4 in print. */
+.cv-page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 32px clamp(20px, 5vw, 72px) 80px;
+}
+.cv-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.cv-back {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.cv-print-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 22px;
+  border: 0;
+  border-radius: 26px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.cv-print-button .icon {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.cv-sheet {
+  background: #ffffff;
+  color: #1a2333;
+  border-radius: 8px;
+  padding: clamp(28px, 5vw, 56px);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+.cv-sheet h1 {
+  font-size: 2.2rem;
+  letter-spacing: -0.03em;
+  margin: 0 0 8px;
+  color: #101828;
+}
+.cv-sheet h2 {
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #526176;
+  border-bottom: 1px solid #dbe2ec;
+  padding-bottom: 6px;
+  margin: 0 0 12px;
+}
+.cv-header {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 32px;
+  margin-bottom: 28px;
+}
+.cv-tagline {
+  font-size: 1.05rem;
+  margin: 0 0 8px;
+}
+.cv-meta {
+  font-size: 0.875rem;
+  color: #526176;
+  margin: 0;
+}
+.cv-contact h2 {
+  margin-top: 4px;
+}
+.cv-contact p {
+  margin: 0 0 4px;
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
+}
+.cv-section {
+  margin-bottom: 24px;
+  break-inside: avoid;
+}
+.cv-section p {
+  margin: 0;
+  max-width: 70ch;
+}
+.cv-skills,
+.cv-projects {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cv-skills li {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 16px;
+  padding: 4px 0;
+}
+.cv-skills span {
+  color: #3d4b63;
+}
+.cv-projects li {
+  padding: 5px 0;
+}
+.cv-tags {
+  display: block;
+  font-size: 0.8125rem;
+  color: #526176;
+}
+.cv-languages {
+  margin-top: 10px;
+  font-size: 0.875rem;
+}
+
+@page {
+  size: A4;
+  margin: 14mm;
+}
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .cv-page {
+    max-width: none;
+    padding: 0;
+  }
+  .cv-sheet {
+    border-radius: 0;
+    padding: 0;
+    font-size: 11pt;
+  }
+  .cv-sheet h1 {
+    font-size: 22pt;
+  }
+  .cv-sheet a {
+    color: inherit;
+    text-decoration: none;
+  }
+}

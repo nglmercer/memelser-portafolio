@@ -31,5 +31,22 @@ assert(header.includes('ArrowRight'), 'Tabs must keep arrow-key navigation');
 const html = readFileSync(new URL('./index.html', import.meta.url), 'utf8');
 assert(html.includes('<div id="app">'), 'index.html must mount the Vue app');
 assert(html.includes('/src/main.ts'), 'index.html must load the TS entry');
+assert(html.includes('id="app-loader"'), 'index.html must paint an inline splash before the bundle loads');
+assert(html.includes('prefers-reduced-motion'), 'splash animation must respect reduced motion');
+assert(html.includes("classList.add('show')"), 'splash must appear delayed so fast loads never flash it');
+const shell = readFileSync(new URL('./src/App.vue', import.meta.url), 'utf8');
+assert(shell.includes('route-loader'), 'app shell must show a loader on slow redirects and route changes');
+assert(shell.includes('beforeEach') && shell.includes('afterEach'), 'route loader must hook navigation guards');
+const entry = readFileSync(new URL('./src/main.ts', import.meta.url), 'utf8');
+assert(entry.includes("getElementById('app-loader')"), 'app entry must dismiss the splash after mount');
 
-console.log('Verified four tab panels, three article routes, keyboard tabs, and the ?view=/?post= URL contract.');
+// The printable CV lives outside the four tabs at /cv, reachable from About.
+const routerSource = readFileSync(new URL('./src/router/index.ts', import.meta.url), 'utf8');
+assert(routerSource.includes("path: '/cv'"), 'Router must expose the CV view at /cv');
+const cvSource = readFileSync(new URL('./src/views/CvView.vue', import.meta.url), 'utf8');
+assert(cvSource.includes('window.print()'), 'CV view must offer printing');
+assert(cvSource.includes('cvProfile') && cvSource.includes('cvSkills'), 'CV must use translated section labels');
+const about = readFileSync(new URL('./src/components/AboutSection.vue', import.meta.url), 'utf8');
+assert(about.includes('to="/cv"'), 'About must link to the printable CV');
+
+console.log('Verified four tab panels, three article routes, keyboard tabs, the ?view=/?post= URL contract, and the /cv printable view.');
